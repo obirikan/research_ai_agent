@@ -6,8 +6,6 @@ from tavily import TavilyClient
 
 class SearchError(Exception):
     """Raised when the web search fails."""
-
-
 def _get_tavily_client() -> TavilyClient:
     api_key = os.getenv("TAVILY_API_KEY")
     if not api_key:
@@ -20,7 +18,6 @@ def _get_tavily_client() -> TavilyClient:
 def search_web(topic: str, max_results: int = 8) -> List[Dict[str, Any]]:
     """
     Search the web for the given topic using the Tavily API.
-
     Returns a list of results, each containing at least: title, url, content.
     """
     if not topic or not topic.strip():
@@ -36,12 +33,11 @@ def search_web(topic: str, max_results: int = 8) -> List[Dict[str, Any]]:
             include_answers=False,
             include_raw_content=True,
         )
-    except Exception as exc:  # API/network errors
+    except Exception as exc:
         raise SearchError(f"Tavily search failed: {exc}") from exc
 
     results = response.get("results", []) if isinstance(response, dict) else []
 
-    # Normalize to a consistent shape
     normalized: List[Dict[str, Any]] = []
     for item in results:
         normalized.append(
