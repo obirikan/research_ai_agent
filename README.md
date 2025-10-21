@@ -12,11 +12,11 @@ This is a beginner-friendly command-line research assistant that:
 
 ### 1) Prerequisites
 - Python 3.9+
-- An Anthropic API key (for Claude)
+- an open ai key
 - A Tavily Search API key
 
 ### 2) Get API Keys
-- Anthropic: create a key at `https://console.anthropic.com`
+- openai: create a key at `https://openai.com`
 - Tavily: create a key at `https://tavily.com`
 
 ### 3) Setup
@@ -37,7 +37,7 @@ python src/main.py "quantum computing for beginners"
 
 Optional flags:
 - `--max-results 8` number of search results to analyze
-- `--model claude-3-5-sonnet-latest` Anthropic model name
+- `--model gpt-4o-mini` openai model name
 
 ### 5) Project Structure
 ```
