@@ -97,7 +97,7 @@ def summarize_findings(topic, search_results, model="gpt-4o-mini"):
     if not search_results:
         raise ValueError("search_results must be a non-empty list")
 
-    client = _get_openai_client()
+    client = _get_openai_client() 
 
     snippets = []
     for idx, r in enumerate(search_results, start=1):
