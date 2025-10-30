@@ -39,6 +39,7 @@ def search_web(topic: str, max_results: int = 8) -> List[Dict[str, Any]]:
     results = response.get("results", []) if isinstance(response, dict) else []
 
     normalized: List[Dict[str, Any]] = []
+    
     for item in results:
         normalized.append(
             {
